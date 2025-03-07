@@ -1,0 +1,155 @@
+### **Second Lecture: JSX Functional Components and Props in React** 
+
+1. **Introduction to JSX Functional Components**  
+   - What is a functional component?  
+   - Why use functional components over class components?  
+   - Basic syntax and structure of a functional component  
+
+2. **Understanding Props in React**  
+   - What are props?  
+   - Passing props to a component  
+   - Using props inside a functional component  
+
+3. **Import and Export in React**  
+   - Exporting a component from one file  
+   - Importing a component into another file  
+
+4. **Interactive Coding Session**  
+   - Creating a functional component  
+   - Passing data using props  
+   - Importing and exporting the component  
+
+---
+
+### **1 ️What is a Functional Component in React?**  
+
+A **functional component** is a JavaScript function that returns JSX (HTML-like syntax in JavaScript). It is the simplest way to create a component in React.  
+
+#### **Example of a Functional Component**
+--jsx
+import React from "react";
+
+const Greeting = () => {
+  return <h2>Hello, Welcome to React!</h2>;
+};
+
+export default Greeting;
+
+**Why use functional components?**  
+ They are simple and easy to read.  
+ They perform better than class components.  
+ They support **React Hooks** for managing state and lifecycle.  
+
+---
+
+### **2 ️Understanding Props in React**  
+
+#### **What are Props?**  
+- Props (short for **Properties**) allow us to pass data from a **parent component** to a **child component**.  
+- Props are **read-only**, meaning they **cannot be modified** inside the child component.  
+
+#### **Example: Passing and Using Props**  
+Create a new file `Message.js` and write the following code:  
+
+--jsx
+import React from "react";
+
+const Message = (props) => {
+  return <h2>Hello, {props.name}!</h2>;
+};
+
+export default Message;
+
+Now, in `App.js`, import and use the `Message` component:  
+
+--jsx
+import React from "react";
+import Message from "./Message";
+
+const App = () => {
+  return (
+    <div>
+      <Message name="Yashwant" />
+      <Message name="Teacher" />
+    </div>
+  );
+};
+
+export default App;
+
+**Explanation:**  
+ The `name` prop is passed to the `Message` component.  
+ Inside `Message.js`, `props.name` is used to display the value.  
+
+---
+
+### **3️ Import and Export in React**  
+
+#### **Exporting a Component**  
+There are **two types of exports** in React:  
+1. **Default Export** (recommended for one component per file)  
+   --jsx
+   const Greeting = () => {
+     return <h2>Hello!</h2>;
+   };
+   export default Greeting;
+   
+2. **Named Export** (used when exporting multiple components)  
+   --jsx
+   export const Greeting = () => <h2>Hello!</h2>;
+   export const Goodbye = () => <h2>Goodbye!</h2>;
+   
+
+#### **Importing a Component**  
+1. **Importing a Default Export**  
+   --jsx
+   import Greeting from "./Greeting";
+   
+2. **Importing a Named Export**  
+   --jsx
+   import { Greeting, Goodbye } from "./Greeting";
+   
+
+---
+
+### **4 Interactive Coding Exercise: Create a Dynamic Welcome Component**  
+
+**Step 1: Create a new file `Welcome.js`**  
+
+--jsx
+import React from "react";
+
+const Welcome = (props) => {
+  return (
+    <div>
+      <h2>Welcome, {props.user}!</h2>
+      <p>Your course: {props.course}</p>
+    </div>
+  );
+};
+
+export default Welcome;
+
+**Step 2: Use the component in `App.js`**  
+
+--jsx
+import React from "react";
+import Welcome from "./Welcome";
+
+const App = () => {
+  return (
+    <div>
+      <Welcome user="Yashwant" course="React Basics" />
+      <Welcome user="Students" course="Advanced JavaScript" />
+    </div>
+  );
+};
+
+export default App;
+
+
+### Conclusion**  
+
+	Functional components are **simple** and **efficient**.  
+	Props allow us to pass **dynamic data** between components.  
+	Importing and exporting components makes code **modular** and **reusable**.  
